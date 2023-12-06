@@ -34,9 +34,7 @@ bookRoute.get("/books", async (req, res) => {
   
   }else if(genre){
      try {
-       let books = await BookModel.find({
-        genre: { $regex: `${genre}`, $options: "i" },
-      });
+       let books = await BookModel.find({genre});
        res.send(books)
      } catch (err) {
       console.log(err);
